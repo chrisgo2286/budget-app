@@ -1,0 +1,19 @@
+.budget-page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.budget,
+.summary-item1,
+.summary-item2,
+.summary-item3 {
+    max-width: 1000px;
+    min-width: 400px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+.budget {
+    height: 500px; 
+}
