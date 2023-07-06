@@ -5,6 +5,7 @@ export default function BudgetPage () {
         
     return (
         <div className='budget-page'>
+            <Budget />
             <div className='summary-item1'>
                 BLOCK 1
             </div>
@@ -14,7 +15,6 @@ export default function BudgetPage () {
             <div className='summary-item3'>
                 BLOCK 3
             </div>
-            <Budget />
         </div>
     )
 }
