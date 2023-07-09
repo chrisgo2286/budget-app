@@ -13,7 +13,7 @@
     max-width: 1000px;
     min-width: 400px;
     height: 500px;
-    border: 1px solid var(--budgetBorder);
+    border: 1px solid var(--lightBorder);
     margin: 10px 10px;
 }
 

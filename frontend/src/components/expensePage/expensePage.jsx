@@ -1,22 +1,33 @@
 import { useEffect, useState } from "react";
-import { getEntries } from "../../misc/apiCalls";
+import { getEntries, getCategories } from "../../misc/apiCalls";
+import ExpenseEntry from "../expenseEntry/expenseEntry";
+import ExpenseHeader from "../expenseHeader/expenseHeader";
+import './expensePage.css';
 
 export default function ExpensePage () {
     
     const [entries, setEntries ] = useState([])
+    const [categories, setCategories] = useState([])
 
     useEffect(() => {
         getEntries()
         .then((data) => {
             setEntries(data);
+        })
+        getCategories()
+        .then((data) => {
+            setCategories(data);
         })        
     }, [])
     
-    console.log(entries)
     return (
-        <div>
+        <div className='expense-table'>
+            <ExpenseHeader />
             { entries.map((entry) => (
-                <div key={ entry.id }>{ entry.amount }</div>
+                <ExpenseEntry 
+                    key={ entry.id } 
+                    entry={ entry } 
+                    categories={ categories }/>
             ))}
         </div>
     )
