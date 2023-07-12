@@ -1,0 +1,14 @@
+.arrow-button {
+    margin: 0px 30px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.arrow-btn-hover {
+    opacity: 50%;
+}
+
+.arrow-btn-disabled {
+    opacity: 30%;
+    cursor: auto;
+}

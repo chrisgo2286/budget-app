@@ -1,0 +1,17 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: 10px auto;
+}
+
+.login .button {
+    width: 20%;
+    margin: 20px auto;
+}
+
+.login .password-reset-link {
+    text-align: center;
+}
+

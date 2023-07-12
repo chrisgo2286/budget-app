@@ -1,0 +1,36 @@
+:root {
+    --selectBorderColor: rgba(33, 48, 40, 0.75);
+    --selectBGColor: rgba(128, 255, 187, 0.25);
+    --selectDropDownBGColor: white;
+}
+
+.select-pair {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    height: 40px;
+    margin: 10px 10px 10px 0px;
+    background-color: var(--selectBGColor);
+}
+
+.select-pair select {
+    height: 100%;
+    border: 1px solid var(--selectBorderColor);
+    padding-left: 10px;
+    background-color: var(--selectDropDownBGColor);
+}
+
+.select-pair label {
+    height: 100%;
+    border: 1px solid var(--selectBorderColor);
+    text-align: right;
+    line-height: 40px;
+    padding-right: 10px;
+    text-transform: uppercase;
+}
+
+.select-hover {
+    opacity: 80%;
+    cursor: pointer;
+    border: 2px solid var(--selectBorderColor)
+}
