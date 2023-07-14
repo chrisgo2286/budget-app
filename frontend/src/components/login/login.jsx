@@ -26,7 +26,7 @@ export default function Login () {
             const token = response.data.key;
             updateLocalStorage(token, credentials.username);
             updateUser(token, credentials.username, user, setUser);
-            navigate('/calendar');
+            navigate('/budget');
         } else {
             setErrors(errorMsg)
         }

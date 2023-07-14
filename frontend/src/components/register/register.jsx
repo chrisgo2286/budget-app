@@ -7,6 +7,7 @@ import { updateUser } from '../../misc/userFunctions';
 import ValidationErrors from '../miscComponents/validationErrors/validationErrors';
 import NewUserFields from './newUserFields';
 import Button from '../miscComponents/button/button';
+import { postLogin } from '../../misc/apiCalls';
 import './register.css';
 
 export default function Register () {
@@ -27,8 +28,23 @@ export default function Register () {
             const token = response.data.key;
             updateLocalStorage(token, credentials.username)
             updateUser(token, credentials.username, user, setUser)
-            navigate('/calendar');
-        }
+            navigate('/budget');
+
+        } else if(response.status === 204) {
+            const loginCredentials = {
+                username: credentials.username,
+                password: credentials.password1
+            }
+
+            const response = await postLogin(loginCredentials);
+
+            if(response.status && response.status === 200) {
+                const token = response.data.key;
+                updateLocalStorage(token, credentials.username);
+                updateUser(token, credentials.username, user, setUser);
+                navigate('/budget');
+            }
+        }    
     }
 
     return (
