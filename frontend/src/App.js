@@ -5,7 +5,7 @@ import ExpensePage from "./components/expensePage/expensePage";
 import HomePage from "./components/homePage/homePage";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
-import NavBar from "./components/navbar/navbar";
+import Navbar from "./components/navbar/navbar";
 import { UserContext } from "./misc/context";
 import axios from "axios";
 
@@ -28,13 +28,13 @@ export default function App () {
         <React.Fragment>
             <UserContext.Provider value={[ user, setUser ]}>
             <Router>
-                <NavBar />
+                <Navbar />
                 <Routes>
                     <Route path='/' element={ <HomePage /> } />
                     <Route path='/budget' element={ <BudgetPage /> } />
                     <Route path='/expenses' element={ <ExpensePage /> } />
                     <Route path='/login' element={ <Login />} />
-                    <Route path='/registration' element={ <Register />} />
+                    <Route path='/register' element={ <Register />} />
                 </Routes>
             </Router>
             </UserContext.Provider>
