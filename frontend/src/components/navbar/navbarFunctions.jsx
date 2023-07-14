@@ -26,6 +26,7 @@ export function siteLinksLoggedIn () {
             <Link to='/'>Home</Link>
             <Link to='/budget' data-cy='budget-page-link'>Budget</Link>
             <Link to='/expenses' data-cy="expenses-page-link">Expenses</Link>
+            <Link to='/newEntry' data-cy="new-entry-link">New Entry</Link>
         </React.Fragment>
     )
 }

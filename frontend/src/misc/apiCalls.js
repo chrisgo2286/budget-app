@@ -10,6 +10,11 @@ export const getCategories = async () => {
     return result.data
 }
 
+export async function postEntries (fields) {
+    const response = await axios.post('/api/entries/', fields)
+    return response.data
+}
+
 // Account API Calls
 
 export async function postRegistration (credentials) {
