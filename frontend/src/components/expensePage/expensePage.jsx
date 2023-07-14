@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getEntries, getCategories } from "../../misc/apiCalls";
 import ExpenseEntry from "../expenseEntry/expenseEntry";
+import ExpenseFilter from "../expenseFilter/expenseFilter";
 import ExpenseHeader from "../expenseHeader/expenseHeader";
 import './expensePage.css';
 
@@ -22,6 +23,7 @@ export default function ExpensePage () {
     
     return (
         <div className='expense-table'>
+            <ExpenseFilter />
             <ExpenseHeader />
             { entries.map((entry) => (
                 <ExpenseEntry 

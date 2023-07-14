@@ -20,3 +20,14 @@
 .expense-headers div {
     width: 25%;
 }
+
+.expense-filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.expense-filter div {
+    width: 25%;
+}
