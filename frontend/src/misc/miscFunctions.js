@@ -29,3 +29,10 @@ export function getCategoryID (categoryName, categories) {
         }
     } 
 }
+
+export function convertCategoryNameToID (categoryName, categories) {
+    if( categoryName === '') {
+        return categories[0].id
+    }
+    return getCategoryID(categoryName, categories)
+}

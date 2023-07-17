@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import NewEntryFields from "./newEntryFields";
 import { getCategories, postEntries } from "../../misc/apiCalls";
-import { compileCategoryNames, getCategoryID } from "../../misc/miscFunctions";
+import { compileCategoryNames, convertCategoryNameToID } from "../../misc/miscFunctions";
 import Button from "../miscComponents/button/button";
 
 export default function NewEntry () {
@@ -24,13 +24,7 @@ export default function NewEntry () {
     },[])
 
     function saveEntry () {
-        let id;
-        if( fields.category === '') {
-            id = getCategoryID(categoryNames[0], categories)
-        } else {
-            id = getCategoryID(fields.category, categories)
-        }
-        console.log(id)
+        const id = convertCategoryNameToID(fields.category, categories)
         const newFields = { ...fields, category: id }
 
         postEntries(newFields)
