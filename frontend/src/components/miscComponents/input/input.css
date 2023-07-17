@@ -1,6 +1,6 @@
 :root {
     --inputBorderColor: rgba(33, 48, 40, 0.75);
-    --inputPairBGColor: rgba(128, 255, 187, 0.25);
+    --inputPairBGColor: lightblue;
 }
 
 .input-pair {

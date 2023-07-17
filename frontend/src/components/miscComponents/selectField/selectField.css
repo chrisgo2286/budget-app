@@ -1,6 +1,6 @@
 :root {
     --selectBorderColor: rgba(33, 48, 40, 0.75);
-    --selectBGColor: rgba(128, 255, 187, 0.25);
+    --selectBGColor: lightblue;
     --selectDropDownBGColor: white;
 }
 

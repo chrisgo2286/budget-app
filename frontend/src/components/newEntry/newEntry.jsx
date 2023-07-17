@@ -3,6 +3,7 @@ import NewEntryFields from "./newEntryFields";
 import { getCategories, postEntries } from "../../misc/apiCalls";
 import { compileCategoryNames, convertCategoryNameToID } from "../../misc/miscFunctions";
 import Button from "../miscComponents/button/button";
+import "./newEntry.css"
 
 export default function NewEntry () {
     
