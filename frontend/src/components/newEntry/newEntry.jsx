@@ -25,7 +25,7 @@ export default function NewEntry () {
 
     function saveEntry () {
         const id = convertCategoryNameToID(fields.category, categories)
-        const newFields = { ...fields, category: id }
+        const newFields = { ...fields, category: id, owner: '1' }
 
         postEntries(newFields)
         .then((data) => {
