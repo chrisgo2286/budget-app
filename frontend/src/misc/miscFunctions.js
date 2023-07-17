@@ -13,3 +13,19 @@ export function getCategoryType (categoryID, categories) {
         }
     }
 }
+
+export function compileCategoryNames (categories) {
+    let categoryNames = [];
+    for (let i=0; i<categories.length; i++) {
+        categoryNames.push(categories[i].name)
+    }
+    return categoryNames
+}
+
+export function getCategoryID (categoryName, categories) {
+    for (let i=0; i<categories.length; i++) {
+        if (categoryName === categories[i].name) {
+            return categories[i].id
+        }
+    } 
+}
