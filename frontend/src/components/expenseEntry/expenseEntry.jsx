@@ -8,7 +8,7 @@ export default function ExpenseEntry ({ entry, categories }) {
             <div className='column'>{ getCategoryName(entry.category, categories) }</div>
             <div className='column'>{ getCategoryType(entry.category, categories) }</div>
             <div className='column'>{ entry.amount} </div>
-            <div className='delete'>X</div>
+            <i className='fa fa-trash delete' aria-hidden="true"></i>
         </div>
     )
 }

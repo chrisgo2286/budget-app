@@ -31,7 +31,19 @@
 
 .expense-entry .delete {
     text-align: right;
-    font-size: 15px;
+    font-size: 18px;
+    color:rgba(0, 0, 0, 0.3);
+}
+
+.expense-entry .delete:hover {
+    font-weight: bold;
+    font-size: 20px;
+    color:rgba(0, 0, 0, 0.4);
+}
+
+.expense-entry:hover {
+    background-color: rgba(173, 216, 230, 0.15);
+    cursor: pointer;
 }
 
 .expense-filter {
