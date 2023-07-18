@@ -16,18 +16,37 @@
     padding-left: 13%;
 }
 
-.expense-entry div,
-.expense-headers div {
-    width: 25%;
+.expense-headers {
+    background-color: rgba(173, 216, 230, 0.4);
+}
+
+.expense-filter {
+    background-color: rgba(173, 216, 230, 0.2);
+}
+
+.expense-entry .column,
+.expense-headers .column {
+    width: 23%;
+}
+
+.expense-entry .delete {
+    text-align: right;
+    font-size: 15px;
 }
 
 .expense-filter {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 100px;
 }
 
-.expense-filter div {
-    width: 25%;
+.filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.expense-filter .button {
+    margin: 0px auto;
 }

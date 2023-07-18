@@ -1,10 +1,11 @@
 export default function ExpenseHeader () {
     return (
         <div className='expense-headers'>
-            <div>DATE</div>
-            <div>CATEGORY</div>
-            <div>TYPE</div>
-            <div>AMOUNT</div>
+            <div className='column'>DATE</div>
+            <div className='column'>CATEGORY</div>
+            <div className='column'>TYPE</div>
+            <div className='column'>AMOUNT</div>
+            <div className='delete'></div>
         </div>
     )
 }

@@ -6,3 +6,7 @@
     max-width: 1000px;
     min-width: 400px;
 }
+
+.new-entry-page .button {
+    margin: 0px auto;
+}
