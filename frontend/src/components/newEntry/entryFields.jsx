@@ -14,7 +14,7 @@ export default function NewEntryFields ({ categories, fields, setFields }) {
                 setFields={ setFields } />
             <SelectField
                 name='category'
-                initial={ (fields.category === '') ? categories[0]: getCategoryName(fields.category, categories) }
+                initial={ categories[0] }
                 options={ categories }
                 fields={ fields }
                 setFields={ setFields } />
