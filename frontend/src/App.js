@@ -7,6 +7,7 @@ import Login from "./components/login/login";
 import Register from "./components/register/register";
 import Navbar from "./components/navbar/navbar";
 import NewEntry from "./components/newEntry/newEntry";
+import EditEntry from "./components/editEntry/editEntry";
 import { UserContext } from "./misc/context";
 import axios from "axios";
 
@@ -35,6 +36,7 @@ export default function App () {
                     <Route path='/budget' element={ <BudgetPage /> } />
                     <Route path='/expenses' element={ <ExpensePage /> } />
                     <Route path='/newEntry' element={ <NewEntry /> } />
+                    <Route path='/editEntry' element={ <EditEntry /> } />
                     <Route path='/login' element={ <Login />} />
                     <Route path='/register' element={ <Register />} />
                 </Routes>

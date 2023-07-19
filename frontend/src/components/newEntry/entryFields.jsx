@@ -1,5 +1,6 @@
 import Input from "../miscComponents/input/input";
 import SelectField from "../miscComponents/selectField/selectField";
+import { getCategoryName } from "../../misc/miscFunctions";
 
 export default function NewEntryFields ({ categories, fields, setFields }) {
 
@@ -13,7 +14,7 @@ export default function NewEntryFields ({ categories, fields, setFields }) {
                 setFields={ setFields } />
             <SelectField
                 name='category'
-                initial={ categories[0] }
+                initial={ (fields.category === '') ? categories[0]: getCategoryName(fields.category, categories) }
                 options={ categories }
                 fields={ fields }
                 setFields={ setFields } />

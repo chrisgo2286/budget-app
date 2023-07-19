@@ -1,16 +1,18 @@
-import { useState, useEffect } from "react";
-import EntryFields from "./entryFields";
-import { getCategories, postEntries } from "../../misc/apiCalls";
+import { useState, useEffect } from 'react';
+import EntryFields from "../newEntry/entryFields";
+import { useLocation } from "react-router-dom"
+import { getCategories } from "../../misc/apiCalls";
 import { compileCategoryNames, convertCategoryNameToID } from "../../misc/miscFunctions";
+import "../newEntry/entryDetail.css"
 import Button from "../miscComponents/button/button";
-import "./entryDetail.css"
 
-export default function NewEntry () {
+export default function EditEntry () {
     
+    const entry = useLocation().state
     const [ fields, setFields ] = useState({
-        category: '',
-        amount: '',
-        date: ''
+        category: entry.category,
+        amount: entry.amount,
+        date: entry.date
     })
     const [ categories, setCategories ] = useState([])
     const [ categoryNames, setCategoryNames ] = useState([])
@@ -25,15 +27,10 @@ export default function NewEntry () {
     },[])
 
     function saveEntry () {
-        const id = convertCategoryNameToID(fields.category, categories)
-        const newFields = { ...fields, category: id, owner: '1' }
-
-        postEntries(newFields)
-        .then((data) => {
-            console.log(data)
-        })
+        console.log("Save Entry Clicked")
     }
 
+    console.log(fields)
     return (
         <div className='entry-detail'>
             <EntryFields

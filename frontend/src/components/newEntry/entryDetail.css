@@ -1,4 +1,4 @@
-.new-entry-page {
+.entry-detail {
     display: flex;
     flex-direction: column;
     margin: 0px auto;
@@ -7,6 +7,6 @@
     min-width: 400px;
 }
 
-.new-entry-page .button {
+.entry-detail .button {
     margin: 0px auto;
 }
