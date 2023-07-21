@@ -1,19 +1,25 @@
 import Button from "../miscComponents/button/button"
+import { filterEntries } from "../../misc/apiCalls"
+import Input from "../miscComponents/input/input"
+import SelectField from "../miscComponents/selectField/selectField" 
 
-export default function ExpenseFilter () {
+export default function ExpenseFilter ({ filters, setFilters, setFilterClicked }) {
     
-    function handleFilter () {
-        console.log("Clicked Filter Expenses")
+    function handleClick () {
+        setFilterClicked(true)
     }
 
     return (
         <div className="expense-filter">
             <div className="filters">
-                <div>Date Range</div>
+                <div className="filter-date">
+                    <Input />
+                    <Input />
+                </div>
                 <div>Category</div>
                 <div>Amount Range</div>
             </div>
-            <Button onClick={ handleFilter } label="Filter" />
+            <Button onClick={ handleClick } label="Filter" />
         </div>
     )
 }

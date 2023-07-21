@@ -23,6 +23,13 @@ export async function patchEntries (id, fields) {
 export async function deleteEntries (id) {
     axios.delete('/api/entries/' + id + '/')
 }
+
+export async function filterEntries (filters) {
+    const response = await axios.get('/api/budget/filter_entries/', {
+        params: filters
+    })
+    return response.data
+}
 // Account API Calls
 
 export async function postRegistration (credentials) {
