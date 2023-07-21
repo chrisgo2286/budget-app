@@ -7,8 +7,9 @@ import './expensePage.css';
 
 export default function ExpensePage () {
     
-    const [entries, setEntries ] = useState([])
-    const [categories, setCategories] = useState([])
+    const [ entryDeleted, setEntryDeleted ] = useState(false)
+    const [ entries, setEntries ] = useState([])
+    const [ categories, setCategories ] = useState([])
 
     useEffect(() => {
         getEntries()
@@ -18,8 +19,9 @@ export default function ExpensePage () {
         getCategories()
         .then((data) => {
             setCategories(data);
-        })        
-    }, [])
+        })
+        setEntryDeleted(false)        
+    }, [entryDeleted])
     
     return (
         <div className='expense-table'>
@@ -29,7 +31,8 @@ export default function ExpensePage () {
                 <ExpenseEntry 
                     key={ entry.id } 
                     entry={ entry } 
-                    categories={ categories }/>
+                    categories={ categories }
+                    setEntryDeleted={ setEntryDeleted }/>
             ))}
         </div>
     )

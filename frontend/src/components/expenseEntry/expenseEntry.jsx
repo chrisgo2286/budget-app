@@ -1,8 +1,9 @@
 import { getCategoryName, getCategoryType } from "../../misc/miscFunctions";
 import { useNavigate } from 'react-router-dom';
 import { navigateToEditEntry } from "../../misc/navFunctions";
+import { deleteEntries } from "../../misc/apiCalls";
 
-export default function ExpenseEntry ({ entry, categories }) {
+export default function ExpenseEntry ({ entry, categories, setEntryDeleted }) {
 
     const navigate = useNavigate();
 
@@ -12,7 +13,8 @@ export default function ExpenseEntry ({ entry, categories }) {
 
     function onDeleteClick (e) {
         e.stopPropagation();
-        console.log("Delete Clicked")
+        deleteEntries(entry.id)
+        setEntryDeleted(true)
     }
 
     return (

@@ -19,6 +19,10 @@ export async function patchEntries (id, fields) {
     const response = await axios.patch('/api/entries/' + id + '/', fields)
     return response.data
 }
+
+export async function deleteEntries (id) {
+    axios.delete('/api/entries/' + id + '/')
+}
 // Account API Calls
 
 export async function postRegistration (credentials) {
