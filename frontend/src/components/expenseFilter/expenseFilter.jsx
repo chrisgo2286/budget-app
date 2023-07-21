@@ -13,8 +13,18 @@ export default function ExpenseFilter ({ filters, setFilters, setFilterClicked }
         <div className="expense-filter">
             <div className="filters">
                 <div className="filter-date">
-                    <Input />
-                    <Input />
+                    <Input
+                        type="date"
+                        name="start_date"
+                        value={ filters.start_date }
+                        fields={ filters }
+                        setFields={ setFilters } />
+                    <Input 
+                        type="date"
+                        name="end_date"
+                        value={ filters.end_date }
+                        fields={ filters }
+                        setFields={ setFilters } />
                 </div>
                 <div>Category</div>
                 <div>Amount Range</div>
