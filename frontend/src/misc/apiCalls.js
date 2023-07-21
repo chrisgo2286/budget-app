@@ -15,6 +15,10 @@ export async function postEntries (fields) {
     return response.data
 }
 
+export async function patchEntries (id, fields) {
+    const response = await axios.patch('/api/entries/' + id + '/', fields)
+    return response.data
+}
 // Account API Calls
 
 export async function postRegistration (credentials) {

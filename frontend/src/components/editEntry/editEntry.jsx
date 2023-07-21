@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import EditEntryFields from "./editEntryFields";
-import { useLocation } from "react-router-dom"
-import { getCategories } from "../../misc/apiCalls";
+import { useLocation, useNavigate } from "react-router-dom"
+import { getCategories, patchEntries } from "../../misc/apiCalls";
 import "../newEntry/entryDetail.css"
 import Button from "../miscComponents/button/button";
 import { compileCategoryNames } from '../../misc/miscFunctions';
 
 export default function EditEntry () {
     
+    const navigate = useNavigate()
     const entry = useLocation().state
     const [ fields, setFields ] = useState({
         category: entry.category,
@@ -27,7 +28,11 @@ export default function EditEntry () {
     },[])
 
     function saveEntry () {
-        console.log("Save Entry Clicked")
+        patchEntries(entry.id, fields)
+        .then((data) => {
+            console.log(data)
+        })
+        .then(() => navigate('/expenses'))
     }
 
     return (
