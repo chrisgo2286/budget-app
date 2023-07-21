@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
-import EntryFields from "./entryFields";
+import { useNavigate } from "react-router-dom";
+import NewEntryFields from "./newEntryFields";
 import { getCategories, postEntries } from "../../misc/apiCalls";
-import { compileCategoryNames, convertCategoryNameToID } from "../../misc/miscFunctions";
+import { convertCategoryNameToID } from "../../misc/miscFunctions";
+import { compileCategoryNames } from "../../misc/miscFunctions";
 import Button from "../miscComponents/button/button";
 import "./entryDetail.css"
 
 export default function NewEntry () {
     
+    const navigate = useNavigate();
     const [ fields, setFields ] = useState({
         category: '',
         amount: '',
@@ -18,10 +21,10 @@ export default function NewEntry () {
     useEffect(() => {
         getCategories()
         .then((data) => {
-            const categoryNames = compileCategoryNames(data)
-            setCategories(data);
-            setCategoryNames(categoryNames);
-        })
+            const names = compileCategoryNames(data)
+            setCategories(data)
+            setCategoryNames(names);
+        })            
     },[])
 
     function saveEntry () {
@@ -32,12 +35,21 @@ export default function NewEntry () {
         .then((data) => {
             console.log(data)
         })
+
+        navigate('/newEntry')
+        
+        const emptyFields = {
+            category: '',
+            amount: '',
+            date: ''
+        }
+        setFields(emptyFields)
     }
 
     return (
         <div className='entry-detail'>
-            <EntryFields
-                categories={ categoryNames } 
+            <NewEntryFields 
+                categoryNames={ categoryNames } 
                 fields={ fields } 
                 setFields={ setFields } />
             <Button

@@ -1,8 +1,17 @@
+import { useState } from "react";
 import Input from "../miscComponents/input/input";
 import SelectField from "../miscComponents/selectField/selectField";
 import { getCategoryName } from "../../misc/miscFunctions";
 
+import { useEffect } from "react";
+
 export default function NewEntryFields ({ categories, fields, setFields }) {
+
+    const [ initCategory, setInitCategory ] = useState()
+
+    useEffect(() => {
+        (fields.category) ? setInitCategory(getCategoryName(fields.category, categories)) : setInitCategory(categories[0].name) 
+    }, [categories, fields])
 
     return (
         <div className='new-entry-fields'>
@@ -14,7 +23,7 @@ export default function NewEntryFields ({ categories, fields, setFields }) {
                 setFields={ setFields } />
             <SelectField
                 name='category'
-                initial={ categories[0] }
+                initial={ initCategory }
                 options={ categories }
                 fields={ fields }
                 setFields={ setFields } />
