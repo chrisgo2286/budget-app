@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './selectField.css';
 
 export default function SelectField ({ 
@@ -9,9 +9,13 @@ export default function SelectField ({
     setFields, 
     ...other }) {
 
-    const [ choice, setChoice ] = useState(initial);
+    const [ choice, setChoice ] = useState('');
     const [ isHovered, setIsHovered ] = useState(false);
 
+    useEffect(() => {
+        setChoice(initial)
+    }, [initial])
+    
     function toggleIsHovered () {
         setIsHovered(!isHovered);
     }
