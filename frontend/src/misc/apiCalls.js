@@ -1,7 +1,15 @@
 import axios from 'axios';
 
-export const getEntries = async () => {
-    const result = await axios.get('/api/entries/')
+export const getEntries = async ( filters ) => {
+    const result = await axios.get('/api/entries/', {
+        params: { 
+            start_date: filters.start_date,
+            end_date: filters.end_date,
+            category: filters.category,
+            min_amount: filters.min_amount,
+            max_amount: filters.max_amount
+         }
+    })
     return result.data
 }
 

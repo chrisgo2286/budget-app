@@ -1,3 +1,8 @@
-export function navigateToEditEntry (navigate, entry) {
-    navigate('/editEntry', { state: entry })
-}
+export function navigateToEditEntry (navigate, entry, categories) {
+    navigate('/editEntry', { 
+        state: {
+            entry: entry, 
+            categories: categories 
+        }
+    })
+}   

@@ -1,31 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import EditEntryFields from "./editEntryFields";
 import { useLocation, useNavigate } from "react-router-dom"
-import { getCategories, patchEntries } from "../../misc/apiCalls";
+import { patchEntries } from "../../misc/apiCalls";
+import { compileCategoryNames } from "../../misc/miscFunctions";
 import "../newEntry/entryDetail.css"
 import Button from "../miscComponents/button/button";
-import { compileCategoryNames } from '../../misc/miscFunctions';
 
 export default function EditEntry () {
     
     const navigate = useNavigate()
-    const entry = useLocation().state
+    const { entry, categories } = useLocation().state
     const [ fields, setFields ] = useState({
         category: entry.category,
         amount: entry.amount,
         date: entry.date
     })
-    const [ categories, setCategories ] = useState([])
-    const [ categoryNames, setCategoryNames ] = useState([])
-
-    useEffect(() => {
-        getCategories()
-        .then((data) => {
-            setCategories(data);
-            const names = compileCategoryNames(data)
-            setCategoryNames(names)
-        })
-    },[])
 
     function saveEntry () {
         patchEntries(entry.id, fields)
@@ -39,7 +28,7 @@ export default function EditEntry () {
         <div className='entry-detail'>
             <EditEntryFields
                 categories={ categories }
-                categoryNames={ categoryNames } 
+                categoryNames={ compileCategoryNames(categories) } 
                 fields={ fields } 
                 setFields={ setFields } />
             <Button

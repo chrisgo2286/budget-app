@@ -1,9 +1,9 @@
 import Button from "../miscComponents/button/button"
-import { filterEntries } from "../../misc/apiCalls"
 import Input from "../miscComponents/input/input"
 import SelectField from "../miscComponents/selectField/selectField" 
+import { compileCategoryNames } from "../../misc/miscFunctions"
 
-export default function ExpenseFilter ({ filters, setFilters, setFilterClicked }) {
+export default function ExpenseFilter ({ filters, categories, setFilters, setFilterClicked }) {
     
     function handleClick () {
         setFilterClicked(true)
@@ -26,8 +26,28 @@ export default function ExpenseFilter ({ filters, setFilters, setFilterClicked }
                         fields={ filters }
                         setFields={ setFilters } />
                 </div>
-                <div>Category</div>
-                <div>Amount Range</div>
+                <div className="filter-category">
+                    <SelectField 
+                        name="category"
+                        initial=""
+                        options={ compileCategoryNames(categories) }
+                        fields={ filters }
+                        setFields={ setFilters } />
+                </div>
+                <div>
+                    <Input
+                        type="number"
+                        name="min_amount"
+                        value={ filters.min_amount }
+                        fields={ filters }
+                        setFields={ setFilters } />
+                    <Input
+                        type="number"
+                        name="max_amount"
+                        value={ filters.max_amount }
+                        fields={ filters }
+                        setFields={ setFilters } />
+                </div>
             </div>
             <Button onClick={ handleClick } label="Filter" />
         </div>

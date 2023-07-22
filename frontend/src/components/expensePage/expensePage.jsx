@@ -3,6 +3,7 @@ import { getEntries, getCategories } from "../../misc/apiCalls";
 import ExpenseEntry from "../expenseEntry/expenseEntry";
 import ExpenseFilter from "../expenseFilter/expenseFilter";
 import ExpenseHeader from "../expenseHeader/expenseHeader";
+import { getCategoryID } from "../../misc/miscFunctions";
 import './expensePage.css';
 
 export default function ExpensePage () {
@@ -20,7 +21,13 @@ export default function ExpensePage () {
     const [ categories, setCategories ] = useState([])
 
     useEffect(() => {
-        getEntries()
+        let newFilters;
+        if (filters.category) {
+            const id = getCategoryID(filters.category, categories)
+            newFilters = { ...filters, ['category']: id }
+        }
+        
+        getEntries((filters.category) ? newFilters: filters)
         .then((data) => {
             setEntries(data);
         })
@@ -36,6 +43,7 @@ export default function ExpensePage () {
         <div className='expense-table'>
             <ExpenseFilter 
                 filters={ filters } 
+                categories={ categories }
                 setFilters={ setFilters }
                 setFilterClicked={ setFilterClicked }/>
             <ExpenseHeader />

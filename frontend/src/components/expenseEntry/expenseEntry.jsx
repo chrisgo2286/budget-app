@@ -8,7 +8,7 @@ export default function ExpenseEntry ({ entry, categories, setEntryDeleted }) {
     const navigate = useNavigate();
 
     function onEntryClick () {
-        navigateToEditEntry(navigate, entry)
+        navigateToEditEntry(navigate, entry, categories)
     }
 
     function onDeleteClick (e) {
