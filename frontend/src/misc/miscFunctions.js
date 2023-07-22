@@ -36,3 +36,12 @@ export function convertCategoryNameToID (categoryName, categories) {
     }
     return getCategoryID(categoryName, categories)
 }
+
+export function convertNamesToIDs (categoryNames, categories) {
+    const categoryIDs = []
+    for (let i=0; i< categoryNames.length; i++) {
+        const id = getCategoryID(categoryNames[i], categories)
+        categoryIDs.push(id)
+    }
+    return categoryIDs;
+}

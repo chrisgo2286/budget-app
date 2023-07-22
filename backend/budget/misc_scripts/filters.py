@@ -2,12 +2,12 @@ from budget.models import Entry
 
 class Filters:
     """Class to filter Expense queryset based on request parameters"""
-    def __init__(self, entries, start_date, end_date, category, min_amount, 
+    def __init__(self, entries, start_date, end_date, categories, min_amount, 
         max_amount):
         self.entries = entries
         self.start_date = start_date[0]
         self.end_date = end_date[0]
-        self.category = category[0]
+        self.categories = categories[0]
         self.min_amount = min_amount[0]
         self.max_amount = max_amount[0]
         self.data = entries
@@ -32,8 +32,9 @@ class Filters:
 
     def filter_category(self):
         """Filters entries for category"""
-        if self.category:
-            self.data = self.data.filter(category=self.category)
+        print(self.categories)
+        if self.categories:
+            self.data = self.data.filter(category__in=self.categories)
 
     def filter_min_amount(self):
         """Filters entries for min amount"""

@@ -27,6 +27,7 @@ class EntryView(viewsets.ModelViewSet):
         return serializer.save(owner=self.request.user)
 
     def get_queryset(self):
+        print(self.request.query_params)
         entries = self.queryset.filter(owner=self.request.user)
         filters = Filters(entries, **self.request.query_params)
         filters.filter()

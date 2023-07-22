@@ -5,7 +5,7 @@ export const getEntries = async ( filters ) => {
         params: { 
             start_date: filters.start_date,
             end_date: filters.end_date,
-            category: filters.category,
+            categories: filters.categories,
             min_amount: filters.min_amount,
             max_amount: filters.max_amount
          }

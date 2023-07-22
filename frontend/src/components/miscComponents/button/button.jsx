@@ -2,14 +2,14 @@ import { useState } from 'react';
 import './button.css';
 
 export default function Button ({ onClick, label, ...other }) {
-    const [ ishovered, setIsHovered ] = useState(false)
+    const [ isHovered, setIsHovered ] = useState(false)
 
     function toggleHover () {
-        setIsHovered(!ishovered)
+        setIsHovered(!isHovered)
     }
 
     function buildClass () {
-        return (ishovered) ? 'button btn-hover': 'button';
+        return (isHovered) ? 'button btn-hover': 'button';
     }
 
     return (

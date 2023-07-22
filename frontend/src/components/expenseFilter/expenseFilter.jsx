@@ -1,7 +1,6 @@
 import Button from "../miscComponents/button/button"
 import Input from "../miscComponents/input/input"
-import SelectField from "../miscComponents/selectField/selectField" 
-import { compileCategoryNames } from "../../misc/miscFunctions"
+import CategoryChoices from "../expensePage/categoryChoices"
 
 export default function ExpenseFilter ({ filters, categories, setFilters, setUpdateRequired }) {
     
@@ -13,7 +12,7 @@ export default function ExpenseFilter ({ filters, categories, setFilters, setUpd
         setFilters({
             'start_date': '',
             'end_date': '',
-            'category': '',
+            'category': [],
             'min_amount':'',
             'max_amount':'',
         })
@@ -38,12 +37,10 @@ export default function ExpenseFilter ({ filters, categories, setFilters, setUpd
                         setFields={ setFilters } />
                 </div>
                 <div className="filter-category">
-                    <SelectField 
-                        name="category"
-                        initial=""
-                        options={ compileCategoryNames(categories) }
-                        fields={ filters }
-                        setFields={ setFilters } />
+                    <CategoryChoices 
+                        categories={ categories }
+                        filters={ filters }
+                        setFilters={ setFilters }/>
                 </div>
                 <div>
                     <Input

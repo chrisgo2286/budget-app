@@ -3,7 +3,7 @@ import { getEntries, getCategories } from "../../misc/apiCalls";
 import ExpenseEntry from "../expenseEntry/expenseEntry";
 import ExpenseFilter from "../expenseFilter/expenseFilter";
 import ExpenseHeader from "../expenseHeader/expenseHeader";
-import { getCategoryID } from "../../misc/miscFunctions";
+import { convertNamesToIDs } from "../../misc/miscFunctions";
 import './expensePage.css';
 
 export default function ExpensePage () {
@@ -11,7 +11,7 @@ export default function ExpensePage () {
     const [ filters, setFilters ] = useState({
         'start_date': '',
         'end_date': '',
-        'category': '',
+        'categories': [],
         'min_amount':'',
         'max_amount':'',
     })
@@ -21,12 +21,14 @@ export default function ExpensePage () {
 
     useEffect(() => {
         let newFilters;
-        if (filters.category) {
-            const id = getCategoryID(filters.category, categories)
-            newFilters = { ...filters, ['category']: id }
+        if (filters.categories.length > 0) {
+            const categoryIDs = convertNamesToIDs(filters.categories, categories)
+            newFilters = { ...filters, ['categories']: categoryIDs.toString() }
+        } else {
+            newFilters = { ...filters, ['categories']: '' }
         }
         
-        getEntries((filters.category) ? newFilters: filters)
+        getEntries(newFilters)
         .then((data) => {
             setEntries(data);
         })
