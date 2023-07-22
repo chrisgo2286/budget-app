@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { navigateToEditEntry } from "../../misc/navFunctions";
 import { deleteEntries } from "../../misc/apiCalls";
 
-export default function ExpenseEntry ({ entry, categories, setEntryDeleted }) {
+export default function ExpenseEntry ({ entry, categories, setUpdateRequired }) {
 
     const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ export default function ExpenseEntry ({ entry, categories, setEntryDeleted }) {
     function onDeleteClick (e) {
         e.stopPropagation();
         deleteEntries(entry.id)
-        setEntryDeleted(true)
+        setUpdateRequired(true)
     }
 
     return (

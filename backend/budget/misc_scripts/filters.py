@@ -27,19 +27,21 @@ class Filters:
 
     def filter_end_date(self):
         """Filters entries for end date"""
-        pass
+        if self.end_date:
+            self.data = self.data.filter(date__lte=self.end_date)
 
     def filter_category(self):
         """Filters entries for category"""
         if self.category:
             self.data = self.data.filter(category=self.category)
-            print(self.data)
 
     def filter_min_amount(self):
-        """Filters for xxx"""
-        pass
+        """Filters entries for min amount"""
+        if self.min_amount:
+            self.data = self.data.filter(amount__gte=self.min_amount)
 
     def filter_max_amount(self):
-        """Filters for xxx"""
-        pass
+        """Filters entries for max amount"""
+        if self.max_amount:
+            self.data = self.data.filter(amount__lte=self.max_amount)
 

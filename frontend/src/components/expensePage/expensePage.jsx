@@ -15,8 +15,7 @@ export default function ExpensePage () {
         'min_amount':'',
         'max_amount':'',
     })
-    const [ filterClicked, setFilterClicked ] = useState(false)
-    const [ entryDeleted, setEntryDeleted ] = useState(false)
+    const [ updateRequired, setUpdateRequired ] = useState(false)
     const [ entries, setEntries ] = useState([])
     const [ categories, setCategories ] = useState([])
 
@@ -35,9 +34,8 @@ export default function ExpensePage () {
         .then((data) => {
             setCategories(data);
         })
-        setEntryDeleted(false)
-        setFilterClicked(false)        
-    }, [entryDeleted, filterClicked])
+        setUpdateRequired(false)
+    }, [updateRequired])
     
     return (
         <div className='expense-table'>
@@ -45,14 +43,14 @@ export default function ExpensePage () {
                 filters={ filters } 
                 categories={ categories }
                 setFilters={ setFilters }
-                setFilterClicked={ setFilterClicked }/>
+                setUpdateRequired={ setUpdateRequired }/>
             <ExpenseHeader />
             { entries.map((entry) => (
                 <ExpenseEntry 
                     key={ entry.id } 
                     entry={ entry } 
                     categories={ categories }
-                    setEntryDeleted={ setEntryDeleted }/>
+                    setUpdateRequired={ setUpdateRequired }/>
             ))}
         </div>
     )

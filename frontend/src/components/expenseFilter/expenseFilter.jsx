@@ -3,10 +3,21 @@ import Input from "../miscComponents/input/input"
 import SelectField from "../miscComponents/selectField/selectField" 
 import { compileCategoryNames } from "../../misc/miscFunctions"
 
-export default function ExpenseFilter ({ filters, categories, setFilters, setFilterClicked }) {
+export default function ExpenseFilter ({ filters, categories, setFilters, setUpdateRequired }) {
     
-    function handleClick () {
-        setFilterClicked(true)
+    function handleFilterClicked () {
+        setUpdateRequired(true)
+    }
+
+    function handleClearClicked () {
+        setFilters({
+            'start_date': '',
+            'end_date': '',
+            'category': '',
+            'min_amount':'',
+            'max_amount':'',
+        })
+        setUpdateRequired(true)
     }
 
     return (
@@ -49,7 +60,8 @@ export default function ExpenseFilter ({ filters, categories, setFilters, setFil
                         setFields={ setFilters } />
                 </div>
             </div>
-            <Button onClick={ handleClick } label="Filter" />
+            <Button onClick={ handleFilterClicked } label="Filter" />
+            <Button onClick={ handleClearClicked } label="Clear" />
         </div>
     )
 }
