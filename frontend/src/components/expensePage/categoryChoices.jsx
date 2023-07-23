@@ -3,6 +3,9 @@ import ChoiceButton from "../miscComponents/choiceButton/choiceButton"
 export default function CategoryChoices ({ categories, filters, setFilters}) {
     
     function checkIfActive (categoryName) {
+        if(filters.categories==='') {
+            return false
+        }
         for (let i=0; i<filters.categories.length; i++) {
             if (categoryName === filters.categories[i]) {
                 return true

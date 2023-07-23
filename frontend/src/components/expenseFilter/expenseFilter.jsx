@@ -12,7 +12,7 @@ export default function ExpenseFilter ({ filters, categories, setFilters, setUpd
         setFilters({
             'start_date': '',
             'end_date': '',
-            'category': [],
+            'categories': [],
             'min_amount':'',
             'max_amount':'',
         })
