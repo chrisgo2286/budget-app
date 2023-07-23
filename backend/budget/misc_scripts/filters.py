@@ -34,7 +34,8 @@ class Filters:
         """Filters entries for category"""
         print(self.categories)
         if self.categories:
-            self.data = self.data.filter(category__in=self.categories)
+            categories = self.categories.split(',')
+            self.data = self.data.filter(category__in=categories)
 
     def filter_min_amount(self):
         """Filters entries for min amount"""
