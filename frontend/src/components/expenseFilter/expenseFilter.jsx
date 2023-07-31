@@ -1,6 +1,8 @@
 import Button from "../miscComponents/button/button"
 import Input from "../miscComponents/input/input"
-import CategoryChoices from "../expensePage/categoryChoices"
+import FilterInput from "../miscComponents/filterInput/filterInput"
+import CategoryChoices from "./categoryChoices"
+import "./expenseFilter.css"
 
 export default function ExpenseFilter ({ filters, categories, setFilters, setUpdateRequired }) {
     
@@ -22,17 +24,29 @@ export default function ExpenseFilter ({ filters, categories, setFilters, setUpd
     return (
         <div className="expense-filter">
             <div className="filters">
-                <div className="filter-date">
-                    <Input
+                <div className="filter-inputs">
+                    <FilterInput
                         type="date"
                         name="start_date"
                         value={ filters.start_date }
                         fields={ filters }
                         setFields={ setFilters } />
-                    <Input 
+                    <FilterInput 
                         type="date"
                         name="end_date"
                         value={ filters.end_date }
+                        fields={ filters }
+                        setFields={ setFilters } />
+                    <FilterInput
+                        type="number"
+                        name="min_amount"
+                        value={ filters.min_amount }
+                        fields={ filters }
+                        setFields={ setFilters } />
+                    <FilterInput
+                        type="number"
+                        name="max_amount"
+                        value={ filters.max_amount }
                         fields={ filters }
                         setFields={ setFilters } />
                 </div>
@@ -42,23 +56,11 @@ export default function ExpenseFilter ({ filters, categories, setFilters, setUpd
                         filters={ filters }
                         setFilters={ setFilters }/>
                 </div>
-                <div>
-                    <Input
-                        type="number"
-                        name="min_amount"
-                        value={ filters.min_amount }
-                        fields={ filters }
-                        setFields={ setFilters } />
-                    <Input
-                        type="number"
-                        name="max_amount"
-                        value={ filters.max_amount }
-                        fields={ filters }
-                        setFields={ setFilters } />
-                </div>
             </div>
-            <Button onClick={ handleFilterClicked } label="Filter" />
-            <Button onClick={ handleClearClicked } label="Clear" />
+            <div className='filter-buttons'>
+                <Button onClick={ handleFilterClicked } label="Filter" />
+                <Button onClick={ handleClearClicked } label="Clear" />
+            </div>
         </div>
     )
 }

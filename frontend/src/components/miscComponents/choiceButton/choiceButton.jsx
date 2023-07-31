@@ -33,7 +33,7 @@ export default function ChoiceButton ({ checkIfActive, toggleActive, label, ...o
             onMouseEnter={ toggleHover }
             onMouseLeave={ toggleHover }
             { ...other }>
-            { label }
+            <span className='button-text'>{ label }</span>
         </div>
     )
 }

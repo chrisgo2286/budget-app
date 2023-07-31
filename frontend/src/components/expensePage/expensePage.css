@@ -20,10 +20,6 @@
     background-color: rgba(173, 216, 230, 0.4);
 }
 
-.expense-filter {
-    background-color: rgba(173, 216, 230, 0.2);
-}
-
 .expense-entry .column,
 .expense-headers .column {
     width: 23%;
@@ -44,21 +40,4 @@
 .expense-entry:hover {
     background-color: rgba(173, 216, 230, 0.15);
     cursor: pointer;
-}
-
-.expense-filter {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    min-height: 100px;
-}
-
-.filters {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.expense-filter .button {
-    margin: 0px auto;
 }

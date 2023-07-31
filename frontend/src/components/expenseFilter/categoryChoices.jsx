@@ -1,3 +1,4 @@
+import React from "react"
 import ChoiceButton from "../miscComponents/choiceButton/choiceButton"
 
 export default function CategoryChoices ({ categories, filters, setFilters}) {
@@ -26,7 +27,7 @@ export default function CategoryChoices ({ categories, filters, setFilters}) {
     }
 
     return (
-        <div>
+        <React.Fragment>
             { categories.map((category) => (
                 <ChoiceButton
                     key={ category.id }
@@ -34,6 +35,6 @@ export default function CategoryChoices ({ categories, filters, setFilters}) {
                     toggleActive={ toggleActive }
                     label={ category.name } />            
             ))}
-        </div>
+        </React.Fragment>
     )
 }

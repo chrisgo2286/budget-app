@@ -1,0 +1,35 @@
+:root {
+    --inputBorderColor: rgba(33, 48, 40, 0.75);
+    --inputPairBGColor: lightblue;
+}
+
+.filter-input-pair {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    margin: 10px 10px 10px 0px;
+    height: 40px;
+    background-color: var(--inputPairBGColor);
+    min-width: 300px;
+}
+
+.filter-input-pair input {
+    height: 100%;
+    border: 1px solid var(--inputBorderColor);
+    padding-left: 10px;
+}
+
+.filter-input-pair label {
+    height: 100%;
+    border: 1px solid var(--inputBorderColor);
+    text-align: right;
+    line-height: 40px;
+    padding-right: 10px;
+    text-transform: uppercase;
+}
+
+.filter-input-hover {
+    opacity: 80%;
+    cursor: pointer;
+    border: 2px solid var(--inputBorderColor);
+}

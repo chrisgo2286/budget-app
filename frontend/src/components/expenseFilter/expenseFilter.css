@@ -1,0 +1,34 @@
+.expense-filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 100px;
+    background-color: rgba(173, 216, 230, 0.2);
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    max-width: 1000px;
+}
+
+.filter-inputs {
+    max-width: 500px;
+    margin: 0px auto;
+}
+
+.filter-category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0px auto;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+    width: 25%;
+}

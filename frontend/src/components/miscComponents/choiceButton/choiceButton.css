@@ -1,15 +1,18 @@
 :root {
-    --choiceBtnColor: lightblue;
+    --choiceBtnInactiveColor: white;
+    --choiceBtnActiveColor: lightblue;
     --choiceBtnBorderColor: rgba(48, 42, 42, 0.65);
 }
 
 .choice-button {
+    background-color: var(--choiceBtnInactiveColor);
     border: 1px solid var(--choiceBtnBorderColor);
     border-radius: 10px;
+    height: 40px;
+    width: 30%;
+    padding-top: 5px;
+    margin: 1% 1%;
     text-align: center;
-    width: 100px;
-    height: 25px;
-    line-height: 25px;
     text-transform: uppercase;
     cursor: pointer;
 }
@@ -19,5 +22,5 @@
 }
 
 .choice-btn-active {
-    background-color: var(--choiceBtnColor);
+    background-color: var(--choiceBtnActiveColor);
 }
