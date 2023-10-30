@@ -32,3 +32,11 @@ class Entry(models.Model):
 
     def __str__(self):
         return f'{self.category} - {self.amount}'
+    
+class BudgetItem(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    amount = models.DecimalField(max_digits=20, decimal_places=2)
+
+    def __str__(self):
+        return f'{self.category} - {self.amount} per Month'

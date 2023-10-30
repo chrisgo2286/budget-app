@@ -59,5 +59,6 @@ export async function postLogin (credentials) {
 
 export async function postLogout () {
     const response = await axios.post('/api/accounts/logout/')
+    console.log(response)
     return response
 }
