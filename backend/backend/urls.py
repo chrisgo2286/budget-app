@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from budget.views import EntryView, CategoryView
+from budget.views import EntryView, CategoryView, BudgetItemView
 
 router = routers.DefaultRouter()
 router.register(r'categories', CategoryView, 'category')
 router.register(r'entries', EntryView, 'entry')
+router.register(r'budget_items', BudgetItemView, 'budget_item')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

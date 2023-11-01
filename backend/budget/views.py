@@ -1,8 +1,11 @@
+from datetime import date
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import CategorySerializer, EntrySerializer
-from .models import Category, Entry
+from .serializers import (CategorySerializer, EntrySerializer, 
+    BudgetItemSerializer)
+from .models import Category, Entry, BudgetItem
 from .misc_scripts.filters import Filters
+from .misc_scripts.budget_items import BudgetItems
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
@@ -38,3 +41,17 @@ def filter_view(request):
     filters = Filters(user, request.query_params)
     filters.filter()
     return Response(filters.data)
+
+class BudgetItemView(viewsets.ModelViewSet):
+    serializer_class = BudgetItemSerializer
+    queryset = BudgetItem.objects.all()
+
+    def perform_create(self, serializer):
+        return serializer.save(owner=self.request.user)
+
+    def get_queryset(self):
+        month = date.today().month
+        year = date.today().year
+        budget_items = BudgetItems(self.request.user, month, year)
+        budget_items.compile()
+        print(budget_items.data)

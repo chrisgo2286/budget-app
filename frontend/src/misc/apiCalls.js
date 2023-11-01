@@ -38,6 +38,12 @@ export async function filterEntries (filters) {
     })
     return response.data
 }
+
+export const getBudgetItems = async () => {
+    const result = await axios.get('/api/budget_items/')
+    return result.data
+}
+
 // Account API Calls
 
 export async function postRegistration (credentials) {

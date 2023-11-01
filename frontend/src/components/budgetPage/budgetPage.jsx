@@ -1,20 +1,33 @@
-import Budget from "../budget/budget"
-import './budgetPage.css';
+import { useEffect, useState } from "react";
+import BudgetItem from "../budgetItem/budgetItem";
+import { getBudgetItems, getCategories } from "../../misc/apiCalls";
+import './budgetPage.css'
 
 export default function BudgetPage () {
-        
+
+    const [budgetItems, setBudgetItems] = useState([]) 
+    const [categories, setCategories] = useState([])
+    
+    useEffect(() => {
+        getBudgetItems()
+        .then((data) => {
+            setBudgetItems(data);
+        })
+
+        getCategories()
+        .then((data) => {
+            setCategories(data);
+        })
+    }, [])
+
     return (
         <div className='budget-page'>
-            <Budget />
-            <div className='summary-item1'>
-                BLOCK 1
-            </div>
-            <div className='summary-item2'>
-                BLOCK 2
-            </div>
-            <div className='summary-item3'>
-                BLOCK 3
-            </div>
+            { budgetItems.map((budgetItem) => (
+                <BudgetItem
+                    key={ budgetItem.id }
+                    budgetItem={ budgetItem }
+                    categories={ categories } />
+            ))}
         </div>
     )
 }
