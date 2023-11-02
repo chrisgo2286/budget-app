@@ -1,3 +1,4 @@
+import json
 from datetime import date
 from django.shortcuts import render
 from rest_framework import viewsets
@@ -47,11 +48,12 @@ class BudgetItemView(viewsets.ModelViewSet):
     queryset = BudgetItem.objects.all()
 
     def perform_create(self, serializer):
-        return serializer.save(owner=self.request.user)
+        return serializer.save(owner=self.request.user)        
 
-    def get_queryset(self):
-        month = date.today().month
-        year = date.today().year
-        budget_items = BudgetItems(self.request.user, month, year)
-        budget_items.compile()
-        print(budget_items.data)
+@api_view(('GET',))
+def budget_view(request):
+    month = 10
+    year = date.today().year
+    budget_items = BudgetItems(request.user, month, year)
+    budget_items.compile()
+    return Response(budget_items.data)

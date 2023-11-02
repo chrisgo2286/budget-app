@@ -40,7 +40,7 @@ export async function filterEntries (filters) {
 }
 
 export const getBudgetItems = async () => {
-    const result = await axios.get('/api/budget_items/')
+    const result = await axios.get('/api/budget/budget_items/')
     return result.data
 }
 

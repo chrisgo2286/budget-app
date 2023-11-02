@@ -24,8 +24,7 @@ export default function Budget () {
             { budgetItems.map((budgetItem) => (
                 <BudgetItem
                     key={ budgetItem.id }
-                    budgetItem={ budgetItem }
-                    categories={ categories } />
+                    budgetItem={ budgetItem } />
             ))}
         </div>
     )
