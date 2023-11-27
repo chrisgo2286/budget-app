@@ -3,6 +3,7 @@ import { getEntries, getCategories } from "../../misc/apiCalls";
 import ExpenseEntry from "../expenseEntry/expenseEntry";
 import ExpenseFilter from "../expenseFilter/expenseFilter";
 import ExpenseHeader from "../expenseHeader/expenseHeader";
+import ToggleFilter from "../expenseFilter/toggleFilter";
 import { convertNamesToIDs } from "../../misc/miscFunctions";
 import './expensePage.css';
 
@@ -18,6 +19,7 @@ export default function ExpensePage () {
     const [ updateRequired, setUpdateRequired ] = useState(false)
     const [ entries, setEntries ] = useState([])
     const [ categories, setCategories ] = useState([])
+    const [ filterVisible, setFilterVisible ] = useState(false)
 
     useEffect(() => {
         let newFilters;
@@ -38,14 +40,22 @@ export default function ExpensePage () {
         })
         setUpdateRequired(false)
     }, [updateRequired])
+
+    function toggleFilter () {
+        setFilterVisible(!filterVisible)
+    }
     
     return (
         <div className='expense-table'>
+            <ToggleFilter toggleFilter={ toggleFilter } />
+            
             <ExpenseFilter 
                 filters={ filters } 
                 categories={ categories }
+                filterVisible={ filterVisible }
                 setFilters={ setFilters }
                 setUpdateRequired={ setUpdateRequired }/>
+            
             <ExpenseHeader />
             { entries.map((entry) => (
                 <ExpenseEntry 

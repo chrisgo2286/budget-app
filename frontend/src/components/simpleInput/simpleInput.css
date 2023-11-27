@@ -1,0 +1,24 @@
+.simple-input {
+    width: 200px;
+    height: 35px;
+}
+
+.simple-input div {
+    font-size: 12px;
+    border: 1px solid grey;
+    text-transform: uppercase;
+    width: 80%;
+    height: 40%;
+    text-align: center;
+    background-color: lightblue;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.simple-input input {
+    -webkit-appearance: none;
+    border: 1px solid gray;
+    width: 80%;
+    height: 60%;
+    border-radius: 0px 0px 5px 5px;
+    text-align: center;
+}

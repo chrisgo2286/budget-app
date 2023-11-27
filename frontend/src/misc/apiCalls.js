@@ -44,6 +44,19 @@ export const getBudgetItems = async () => {
     return result.data
 }
 
+export function patchBudgetItem (id, fields) {
+    axios.patch('/api/budget_items/' + id + '/', fields)
+    .then(response => {
+        console.log(response)
+    })
+}
+
+export function addBudgetItem (fields) {
+    axios.post('/api/budget_items/', fields)
+    .then(response => {
+        console.log(response)
+    })
+}
 // Account API Calls
 
 export async function postRegistration (credentials) {

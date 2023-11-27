@@ -1,10 +1,11 @@
 import Button from "../miscComponents/button/button"
-import Input from "../miscComponents/input/input"
-import FilterInput from "../miscComponents/filterInput/filterInput"
+// import FilterInput from "../miscComponents/filterInput/filterInput"
+import SimpleInput from "../simpleInput/simpleInput"
 import CategoryChoices from "./categoryChoices"
 import "./expenseFilter.css"
+import React from "react"
 
-export default function ExpenseFilter ({ filters, categories, setFilters, setUpdateRequired }) {
+export default function ExpenseFilter ({ filters, categories, setFilters, setUpdateRequired, filterVisible }) {
     
     function handleFilterClicked () {
         setUpdateRequired(true)
@@ -22,33 +23,33 @@ export default function ExpenseFilter ({ filters, categories, setFilters, setUpd
     }
 
     return (
-        <div className="expense-filter">
+        <div className={ (filterVisible) ? "expense-filter active": "expense-filter"} >
             <div className="filters">
                 <div className="filter-inputs">
-                    <FilterInput
+                    <SimpleInput
                         type="date"
                         name="start_date"
                         value={ filters.start_date }
                         fields={ filters }
-                        setFields={ setFilters } />
-                    <FilterInput 
+                        setFields={ setFilters} />
+                    <SimpleInput
                         type="date"
-                        name="end_date"
-                        value={ filters.end_date }
+                        name="start_date"
+                        value={ filters.start_date }
                         fields={ filters }
-                        setFields={ setFilters } />
-                    <FilterInput
+                        setFields={ setFilters} />
+                    <SimpleInput
                         type="number"
                         name="min_amount"
                         value={ filters.min_amount }
                         fields={ filters }
-                        setFields={ setFilters } />
-                    <FilterInput
+                        setFields={ setFilters} />
+                    <SimpleInput
                         type="number"
                         name="max_amount"
                         value={ filters.max_amount }
                         fields={ filters }
-                        setFields={ setFilters } />
+                        setFields={ setFilters} />
                 </div>
                 <div className="filter-category">
                     <CategoryChoices 
@@ -56,10 +57,10 @@ export default function ExpenseFilter ({ filters, categories, setFilters, setUpd
                         filters={ filters }
                         setFilters={ setFilters }/>
                 </div>
-            </div>
-            <div className='filter-buttons'>
-                <Button onClick={ handleFilterClicked } label="Filter" />
-                <Button onClick={ handleClearClicked } label="Clear" />
+                <div className='filter-buttons'>
+                    <Button onClick={ handleFilterClicked } label="Filter" />
+                    <Button onClick={ handleClearClicked } label="Clear" />
+                </div>
             </div>
         </div>
     )

@@ -2,26 +2,27 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    max-width: 1000px;
 }
 
-.budget-page,
-.summary-item1,
+.budget,
+.categories,
 .summary-item2,
 .summary-item3 {
-    height: 500px;
-    
+    height: 400px;
+    width: 400px;
+    border: 1px solid var(--lightBorder);
+    margin: 10px auto;
+    overflow-y:auto;
 }
 
-.budget-page {
-    max-width: 600px;
-    min-width: 400px;
-    border: 1px solid var(--lightBorder);
-    margin: 0px auto;
-    height: 500px;
+.budget-items {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around; 
+}
+
+.budget-item {
+    margin: 5px auto;
 }

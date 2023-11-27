@@ -1,12 +1,24 @@
 .budget-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100%;
 }
 
+.budget-item-header {
+    margin: 0px auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.budget-item-header input {
+    text-align: center;
+    width: 50px;
+    border: 1px dotted grey;
+}
 .budget-item-bar {
+    margin: 0px auto;
     position: relative;
     width: 90%;
     height: 20px;
@@ -17,16 +29,4 @@
     position: absolute;
     height: 20px;
     background-color: lightblue;
-}
-
-.bar-label-actual {
-    position: absolute;
-    height: 20px;
-    left: 20px;
-}
-
-.bar-label-budget {
-    position: absolute;
-    height: 20px;
-    right: 20px;
 }

@@ -2,21 +2,31 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    min-height: 100px;
+    height: 0px;
+    overflow: hidden;    
     background-color: rgba(173, 216, 230, 0.2);
+    transition: height .5s ease;
+}
+
+.active {
+    height: 250px;
 }
 
 .filters {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     padding: 10px 20px;
     max-width: 1000px;
 }
 
 .filter-inputs {
-    max-width: 500px;
-    margin: 0px auto;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .filter-category {
@@ -26,9 +36,32 @@
     margin: 0px auto;
 }
 
+.filter-category div {
+    width: 100px;
+}
+
+.filter-category div:hover {
+    background-color: rgba(173, 216, 230, 0.15);
+    cursor: pointer;
+}
+
 .filter-buttons {
     display: flex;
     flex-direction: row;
     margin: 10px auto;
     width: 25%;
+}
+
+.filter-buttons .button {
+    margin: 10px;
+}
+
+.collapse-btn {
+    display: flex;
+    justify-content: right;
+    margin: 10px 20px 10px 0px;
+}
+
+.collapse-btn i {
+    cursor: pointer;
 }

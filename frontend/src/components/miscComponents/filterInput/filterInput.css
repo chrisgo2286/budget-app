@@ -8,9 +8,9 @@
     grid-template-columns: 1fr 4fr;
     align-items: center;
     margin: 10px 10px 10px 0px;
-    height: 40px;
+    height: 20px;
     background-color: var(--inputPairBGColor);
-    min-width: 300px;
+    width: 300px;
 }
 
 .filter-input-pair input {
@@ -23,7 +23,7 @@
     height: 100%;
     border: 1px solid var(--inputBorderColor);
     text-align: right;
-    line-height: 40px;
+    line-height: 20px;
     padding-right: 10px;
     text-transform: uppercase;
 }

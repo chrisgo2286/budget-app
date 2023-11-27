@@ -14,13 +14,13 @@ class BudgetItems:
         """Compiles data and populates data list"""
         for budget_item in self.budget_items:
             item_data = {}
-            item_data['id'] = budget_item.category.id
+            item_data['id'] = budget_item.id
             item_data['budget'] = float(budget_item.amount)
             item_data['category'] = budget_item.category.name
+            item_data['category_id'] = budget_item.category.id
             item_data['actual'] = self.calc_actual(budget_item.category)
             fraction = float(item_data['actual'] / item_data['budget'])
             item_data['percent'] = f'{round(fraction * 100,4)}%'
-            print(item_data['percent'])
             self.data.append(item_data)
     
     def calc_actual(self, category):
